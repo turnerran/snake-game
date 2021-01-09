@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="score">
+        <span>
+        Score : {{score}}
+        </span>
+    </div>
+    <div class="game-container" [ngClass]="{'opacity': isGameOver}">
+        <div class="row" *ngFor="let row of board; let i = index;">
+            <div class="column" attr.data-row={{i}} attr.data-column={{j}} [ngClass]="{'food': column === spotType.food, 'snake': column === spotType.SnakeBody}" [ngStyle]="{'background-color': setGameColors(i, j)}" *ngFor="let column of row; let j = index"></div>
+        </div>
+    </div>
+    <div [ngClass]="{'win': isWin, 'game-over':isGameOver }" *ngIf="isWin || isGameOver">
+        <span>
+        {{isWin ? 'Win !!!' : 'Game Over !!!'}}
+        </span>
+    </div>
+</div>
