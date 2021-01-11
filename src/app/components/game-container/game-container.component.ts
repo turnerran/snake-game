@@ -29,9 +29,21 @@ import {
           1200,
           keyframes([
             // animate for 1200 ms
-            style({ background: '#49925f', color: '#0c010191' }),
-            style({ background: '#399e57', color: '#0c0101a3' }),
-            style({ background: '#1adc1a', color: '#0c0101c4' }),
+            style({
+              background: '#49925f',
+              color: '#0c010191',
+              'font-size': '100px',
+            }),
+            style({
+              background: '#399e57',
+              color: '#0c0101a3',
+              'font-size': '70px',
+            }),
+            style({
+              background: '#1adc1a',
+              color: '#0c0101c4',
+              'font-size': '20px',
+            }),
           ])
         ),
       ]),

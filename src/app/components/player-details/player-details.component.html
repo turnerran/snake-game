@@ -1,8 +1,7 @@
-<div>
-  <h2>Details</h2>
+<div class="player-details">
   <label
-    >Please enter your name :
-    <input [(ngModel)]="player.name" placeholder="name" />
+    >Please enter your name
+    <input [(ngModel)]="player.name" placeholder="Name" />
   </label>
+  <button class="save-button" (click)="save()">PLAY</button>
 </div>
-<button (click)="save()">Save</button>

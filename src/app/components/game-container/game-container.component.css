@@ -36,7 +36,6 @@
 }
 .timer-text {
   position: absolute;
-  font-size: 100px;
   font-weight: 500;
   display: inline-flex;
   width: 180px;

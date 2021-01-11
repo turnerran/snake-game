@@ -20,7 +20,9 @@ export class PlayerDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   save(): void {
-    this.playerService.setPlayer(this.player);
-    this.router.navigate(['/play']);
+    if (this.player.name) {
+      this.playerService.setPlayer(this.player);
+      this.router.navigate(['/play']);
+    }
   }
 }

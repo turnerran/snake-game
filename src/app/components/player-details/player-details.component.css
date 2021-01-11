@@ -1,3 +1,39 @@
 input {
-  margin-left: 4px;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  margin-top: 32px;
+  height: 16px;
+}
+
+.player-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.save-button {
+  height: 48px;
+  width: 124px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 64px;
+  letter-spacing: 2px;
+  align-self: center;
+  background: #7294e2;
+  box-shadow: inset -1px 3px 8px 5px #4476b4, 2px 5px 16px 0px #0b325e,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  align-self: center;
+}
+
+label {
+  font-size: 32px;
 }
