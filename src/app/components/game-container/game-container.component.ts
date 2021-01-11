@@ -4,14 +4,39 @@ import {
   BOARD_SIZE,
   SpotType,
   TIME_INTERVAL,
-} from '../consts/game-const';
-import { Spot } from '../models/spot';
-import { Snake } from '../models/snake';
+} from '../../consts/game-const';
+import { Spot } from '../../models/spot';
+import { Snake } from '../../models/snake';
+import { PlayerService } from 'src/app/services/player.service';
+import { Player } from 'src/app/models/player';
+import {
+  animate,
+  style,
+  transition,
+  trigger,
+  keyframes,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-game-container',
   templateUrl: './game-container.component.html',
   styleUrls: ['./game-container.component.css'],
+  animations: [
+    trigger('myTrigger', [
+      transition('* => *', [
+        // when the item is changed
+        animate(
+          1200,
+          keyframes([
+            // animate for 1200 ms
+            style({ background: '#49925f', color: '#0c010191' }),
+            style({ background: '#399e57', color: '#0c0101a3' }),
+            style({ background: '#1adc1a', color: '#0c0101c4' }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
 })
 export class GameContainerComponent implements OnInit {
   board: SpotType[][];
@@ -25,10 +50,13 @@ export class GameContainerComponent implements OnInit {
   public score = 0;
   private currentMove: number;
   spotType = SpotType;
+  public player: Player;
+  public timer: number;
 
-  constructor() {
+  constructor(private playerService: PlayerService) {
     this.setBoard();
     this.food = { column: 0, row: 0 };
+    this.timer = 5;
   }
 
   ngOnInit() {
@@ -43,8 +71,22 @@ export class GameContainerComponent implements OnInit {
       ],
     };
     this.currentMove = MOVES.DOWN;
+    this.board[halfPosition][halfPosition] = SpotType.SnakeBody;
+    this.board[halfPosition][halfPosition + 1] = SpotType.SnakeBody;
     this.setSnakeHead();
-    this.playMove();
+    this.startCountDown();
+    this.player = this.playerService.currentPlayer;
+  }
+
+  startCountDown() {
+    if (this.timer >= 0) {
+      setTimeout(() => {
+        this.timer--;
+        this.startCountDown();
+      }, 1000);
+    } else {
+      this.playMove();
+    }
   }
 
   @HostListener('window:keydown', ['$event'])

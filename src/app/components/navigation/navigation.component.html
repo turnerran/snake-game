@@ -1,0 +1,46 @@
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>Snake Retro Game</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/play'"> PLAY </a>
+      <a mat-button [routerLink]="'/dashboard'"> DASHBOARD </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">Nested Menus</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+    <mat-nav-list>
+      <mat-list-item class="parent">
+        <span class="full-width">SNAKE MENU</span>
+        <mat-icon mat-list-icon>home</mat-icon>
+      </mat-list-item>
+      <mat-list-item class="parent"
+        ><a mat-button [routerLink]="'/details'"> DETAILS </a></mat-list-item
+      >
+      <mat-list-item class="parent">
+        <a mat-button [routerLink]="'/play'"> PLAY </a>
+      </mat-list-item>
+      <mat-list-item class="parent"
+        ><a mat-button [routerLink]="'/dashboard'">
+          DASHBOARD
+        </a></mat-list-item
+      >
+    </mat-nav-list>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

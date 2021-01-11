@@ -1,8 +1,12 @@
 <div class="wrapper">
-  <div class="score">
+  <div>{{ player?.name }}</div>
+  <div class="score" [ngClass]="{ win: isWin, 'game-over': isGameOver }">
     <span> Score : {{ score }} </span>
   </div>
-  <div class="game-container" [ngClass]="{ opacity: isGameOver }">
+  <div class="game-container" [ngClass]="{ opacity: isGameOver || timer >= 0 }">
+    <div *ngIf="timer >= 0" class="timer">
+      <div class="timer-text" [@myTrigger]="timer">{{ timer }}</div>
+    </div>
     <div class="row" *ngFor="let row of board; let i = index">
       <div
         class="column"
@@ -18,13 +22,5 @@
         *ngFor="let column of row; let j = index"
       ></div>
     </div>
-  </div>
-  <div
-    [ngClass]="{ win: isWin, 'game-over': isGameOver }"
-    *ngIf="isWin || isGameOver"
-  >
-    <span>
-      {{ isWin ? "Win !!!" : "Game Over !!!" }}
-    </span>
   </div>
 </div>
