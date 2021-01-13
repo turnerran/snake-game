@@ -1,7 +1,7 @@
 <div class="player-name">Welcome {{ player?.name || "john doe" }}</div>
 <div class="wrapper">
   <div class="score" [ngClass]="{ win: isWin, 'game-over': isGameOver }">
-    <span> Score : {{ score }} </span>
+    <span> Score : {{ player.score }} </span>
   </div>
   <div class="game-container" [ngClass]="{ opacity: isGameOver || timer >= 0 }">
     <div *ngIf="timer >= 0" class="timer">

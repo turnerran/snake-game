@@ -1,4 +1,40 @@
-<li *ngFor="let player of players">
-  <span>name - {{ player.name }}</span>
-  <span>score - {{ player.score }}</span>
-</li>
+<!-- <li class="player-list" *ngFor="let player of players; let i = index">
+  {{ i + 1 }})
+  <div class="player-name">name - {{ player.name }}</div>
+  <div class="player-score">score - {{ player.score }}</div>
+</li> -->
+<div *ngIf="!isLoading">
+  <h1>Top Records</h1>
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="players" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="index">
+        <mat-header-cell *matHeaderCellDef>Index</mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">{{
+          i + 1
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="score">
+        <mat-header-cell *matHeaderCellDef>Score</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.score }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: displayedColumns; let i = index"
+        [ngClass]="i == 0 ? 'first-place' : 'second-place'"
+      ></mat-row>
+    </table>
+  </div>
+</div>

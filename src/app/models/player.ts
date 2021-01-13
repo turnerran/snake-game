@@ -1,5 +1,5 @@
-export interface Player {
-  id: number;
+export class Player {
+  id: string;
   name: string;
   score: number;
 }

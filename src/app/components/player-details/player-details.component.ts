@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PlayerDetailsComponent implements OnInit {
   public player: Player = {
-    id: 1,
+    id: '',
     name: '',
     score: 0,
   };
@@ -21,6 +21,7 @@ export class PlayerDetailsComponent implements OnInit {
 
   save(): void {
     if (this.player.name) {
+      this.playerService.createPlayer(this.player);
       this.playerService.setPlayer(this.player);
       this.router.navigate(['/play']);
     }

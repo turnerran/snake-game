@@ -1,0 +1,29 @@
+.player-list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 16px;
+}
+
+.player-name,
+.player-score {
+  font-size: 20px;
+}
+
+table {
+  width: 100vh;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-place {
+  background: #3b793b;
+}
+
+h1 {
+  text-align: center;
+}

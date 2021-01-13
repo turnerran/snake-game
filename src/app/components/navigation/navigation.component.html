@@ -1,22 +1,8 @@
-<!-- <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-    </button>
-    <h1>Snake Retro Game</h1>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/play'"> PLAY </a>
-      <a mat-button [routerLink]="'/dashboard'"> DASHBOARD </a>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar> -->
-
 <mat-toolbar color="primary" class="example-toolbar">
   <button mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 class="example-app-name">Nested Menus</h1>
+  <h1 class="example-app-name">Snake Retro Game</h1>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
@@ -26,11 +12,8 @@
         <mat-icon mat-list-icon>home</mat-icon>
       </mat-list-item>
       <mat-list-item class="parent"
-        ><a mat-button [routerLink]="'/details'"> DETAILS </a></mat-list-item
+        ><a mat-button [routerLink]="'/details'"> PLAY </a></mat-list-item
       >
-      <mat-list-item class="parent">
-        <a mat-button [routerLink]="'/play'"> PLAY </a>
-      </mat-list-item>
       <mat-list-item class="parent"
         ><a mat-button [routerLink]="'/dashboard'">
           DASHBOARD

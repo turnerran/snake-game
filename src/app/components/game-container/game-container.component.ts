@@ -59,7 +59,6 @@ export class GameContainerComponent implements OnInit {
   public isWin: boolean;
   validSpots = [SpotType.Food, SpotType.Empty];
   validMoves = [MOVES.DOWN, , MOVES.LEFT, MOVES.RIGHT, MOVES.UP];
-  public score = 0;
   private currentMove: number;
   spotType = SpotType;
   public player: Player;
@@ -146,6 +145,7 @@ export class GameContainerComponent implements OnInit {
 
     if (this.shouldGameOver(this.currentMove)) {
       this.isGameOver = true;
+      this.updateScore();
       return;
     }
     this.ClearSnakeHead();
@@ -156,6 +156,7 @@ export class GameContainerComponent implements OnInit {
 
     if (this.isBoardFull()) {
       this.isWin = true;
+      this.updateScore();
       return;
     }
 
@@ -186,6 +187,10 @@ export class GameContainerComponent implements OnInit {
     }
   }
 
+  updateScore(): void {
+    this.playerService.update(this.player);
+  }
+
   isSnakeBody(spot: Spot): boolean {
     return this.snake.body.some(
       (x) => x.column === spot.column && x.row === spot.row
@@ -202,7 +207,7 @@ export class GameContainerComponent implements OnInit {
   }
 
   setScore(): void {
-    this.score += 10;
+    this.player.score += 10;
   }
 
   _getRandomFreeSpot(): Spot {

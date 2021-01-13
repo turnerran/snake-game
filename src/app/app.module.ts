@@ -14,7 +14,11 @@ import {
   MatSidenavModule,
   MatListModule,
   MatButtonModule,
+  MatTableModule,
 } from '@angular/material';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 import { PlayerDetailsComponent } from './components/player-details/player-details.component';
 @NgModule({
   declarations: [
@@ -32,9 +36,12 @@ import { PlayerDetailsComponent } from './components/player-details/player-detai
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
+    MatTableModule,
     BrowserModule,
     FormsModule,
     CommonModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
