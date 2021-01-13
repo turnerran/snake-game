@@ -1,15 +1,7 @@
-<!-- <li class="player-list" *ngFor="let player of players; let i = index">
-  {{ i + 1 }})
-  <div class="player-name">name - {{ player.name }}</div>
-  <div class="player-score">score - {{ player.score }}</div>
-</li> -->
 <div *ngIf="!isLoading">
   <h1>Top Records</h1>
   <div class="table-wrapper">
     <table mat-table [dataSource]="players" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
       <!-- Index Column -->
       <ng-container matColumnDef="index">
         <mat-header-cell *matHeaderCellDef>Index</mat-header-cell>

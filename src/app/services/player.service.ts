@@ -25,16 +25,11 @@ export class PlayerService {
   createPlayer(player: Player) {
     const id = this.firestore.createId();
     player.id = id;
-    return new Promise<any>((resolve, reject) => {
-      this.firestore
-        .collection('players')
-        .add(player)
-        .then(
-          (res) => {},
-          (err) => reject(err)
-        )
-        .catch((err) => console.log(err));
-    });
+    this.firestore
+      .collection('players')
+      .add(player)
+      .then((res) => {})
+      .catch((err) => console.log(err));
   }
 
   update(player: Player) {
